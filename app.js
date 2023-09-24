@@ -50,10 +50,7 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/", async (req, res) => {
-    const cart = await Product.find();
-    res.status(200).json(cart);
-});
+app.use("/", indexRouter);
 app.use("/user", middlewareController.verifyToken, userRouter);
 app.use("/v/auth", authRouter);
 app.use("/category", categoryRouter);
