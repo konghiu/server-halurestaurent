@@ -1,9 +1,7 @@
 const mongoose = require("mongoose");
-const url =
-    "mongodb+srv://conghieu:conghieu312004@cluster0.d3gcpfp.mongodb.net/";
 async function connect() {
     try {
-        await mongoose.connect(url);
+        await mongoose.connect(process.env.MONGO_CONNECT);
         console.log("connect successfull");
     } catch (err) {
         console.log("connect failure");
