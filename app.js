@@ -37,7 +37,7 @@ const allowCors = {
     optionsSuccessStatus: 200,
     credentials: true,
 };
-app.use(cors());
+// app.use(cors(allowCors));
 app.use(cookieParser());
 app.use(function (req, res, next) {
     res.header("Content-Type", "application/json;charset=UTF-8");
