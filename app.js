@@ -34,8 +34,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "src/public")));
 app.use(
     cors({
-        // origin: "http://localhost:3000",
-        origin: "https://konghiu.github.io",
+        origin: "https://localhost:3000",
+        // origin: "https://konghiu.github.io",
         optionsSuccessStatus: 200,
         credentials: true,
     })
@@ -50,7 +50,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.use("/", indexRouter);
+app.get("/", (req, res) => {
+    res.status(200).json("Hello world!");
+});
 app.use("/user", middlewareController.verifyToken, userRouter);
 app.use("/v/auth", authRouter);
 app.use("/category", categoryRouter);
