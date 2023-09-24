@@ -20,6 +20,7 @@ const bookingRouter = require("./src/routes/booking");
 const middlewareController = require("./src/controllers/middlewareController");
 const { createServer } = require("http");
 const socketConntect = require("./src/routes/socket");
+const Product = require("./src/models/Product");
 
 db.connect();
 
@@ -49,8 +50,9 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/", (req, res) => {
-    res.status(200).json("Hello world!");
+app.get("/", async (req, res) => {
+    const cart = await Product.find();
+    res.status(200).json(cart);
 });
 app.use("/user", middlewareController.verifyToken, userRouter);
 app.use("/v/auth", authRouter);
