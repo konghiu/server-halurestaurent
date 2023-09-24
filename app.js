@@ -32,12 +32,13 @@ app.use(logger("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "src/public")));
-const allowCors = {
-    origin: "http://localhost:3000",
-    optionsSuccessStatus: 200,
-    credentials: true,
-};
-// app.use(cors(allowCors));
+app.use(
+    cors({
+        origin: "http://localhost:3000",
+        optionsSuccessStatus: 200,
+        credentials: true,
+    })
+);
 app.use(cookieParser());
 app.use(function (req, res, next) {
     res.header("Content-Type", "application/json;charset=UTF-8");
