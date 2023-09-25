@@ -57,7 +57,7 @@ const accountController = {
                         delete resUser.password;
                         res.cookie("refreshToken", refreshToken, {
                             httpOnly: true,
-                            sameSite: "none",
+                            sameSite: true,
                             secure: true,
                         });
                         let response = {
