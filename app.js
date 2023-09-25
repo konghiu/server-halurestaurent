@@ -40,7 +40,7 @@ app.use(
         credentials: true,
     })
 );
-app.use(cookieParser());
+app.use(cookieParser({}));
 app.use(function (req, res, next) {
     res.header("Content-Type", "application/json;charset=UTF-8");
     res.header(
