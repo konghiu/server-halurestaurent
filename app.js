@@ -35,7 +35,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "src/public")));
 app.use(
     cors({
-        origin: "http://localhost:3000",
+        origin: "https://konghiu.github.io/halurestaurent/",
+        // origin: "http://localhost:3000",
         optionsSuccessStatus: 200,
         credentials: true,
     })
